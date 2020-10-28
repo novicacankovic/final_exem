@@ -1,0 +1,186 @@
+﻿@section Scripts {
+    @Scripts.Render("~/Scripts/Skripta.js")
+}
+
+<div class="container">
+    <div class="row">
+        <br />
+        <button class="btn btn-default" id="btnPrijava" style="width:150px;float:right;margin-left:20px">Prijava</button>
+        <button class="btn btn-default" id="btnRegistracija" style="width:150px;float:right;background-color:yellow">Registracija</button>
+    </div>
+    <div class="row" id="registracija" style="display: none">
+        <div class="col-lg-offset-4 col-lg-4">
+            <form class="form-horizontal" method="post" action="post/" id="registracija">
+                <h3>Registracija</h3>
+                <br />
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">E-mail adresa:</label>
+                    <div class="col-sm-8" style="float:right">
+                        <input type="email" class="form-control" id="regEmail" placeholder="E-mail" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Lozinka: </label>
+                    <div class="col-sm-8" style="float:right">
+                        <input type="password" class="form-control" id="regLoz" placeholder="Lozinka" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-pull-4">Potvrda Lozinke: </label>
+                    <div class="col-sm-8" style="float:right">
+                        <input type="password" class="form-control" id="regLoz2" placeholder="Potvrda lozinke" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button type="submit" id="Odustajanje1" class="btn btn-default" style="float:left;width:150px;background-color:yellow">Odustajanje</button>
+                        <button type="submit" class="btn btn-default" style="float:right;width:150px">Registracija</button>
+                    </div>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-4" id="info2" style="display:none">
+            <h3 style="display:block"> Uspešna registracija na sistem </h3>
+            <div class="col-lg-offset-1">
+                <button id="prijavaNova" class="btn btn-default" style="width:200px">Prijava na sistem</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-offset-4 col-lg-4">
+        <form class="form-horizontal" method="post" action="post/" id="prijava" style="display:none">
+            <div class="col-sm-offset-4">
+                <h3>Prijava korisnika</h3>
+            </div>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Korisnicko ime:</label>
+                <div class="col-sm-8" style="float:right">
+                    <input type="email" class="form-control" id="priEmail" placeholder="Korisnicko ime">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Lozinka:</label>
+                <div class="col-sm-8" style="float:right">
+                    <input type="password" class="form-control" id="priLoz" placeholder="Lozinka">
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    <button id="Odustajanje2" class="btn btn-default" style="float:left;width:150px;background-color:yellow">Odustajanje</button>
+                    <button type="submit" class="btn btn-default" style="float:right;width:150px">Prijava</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <label id="info"></label>
+    <button id="odjavise" class="btn btn-default" style="display:none;width:150px;float:right;background-color:yellow"> Odjava </button>
+</div>
+<div class="row">
+    <div class="col-lg-4" id="formsearch" style="display:none">
+        <form class="form-horizontal" method="post" action="post/" id="searchForm">
+            <br />
+            <br />
+            <h2>Pretraga po kapacitetu:</h2>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Najmanje soba:</label>
+                <div class="col-sm-8" style="float:right">
+                    <input type="number" class="form-control" id="najmanje" min="10" max="999">
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Najviše soba:</label>
+                <div class="col-sm-8" style="float:right">
+                    <input type="number" class="form-control" id="najvise" min="10" max="999">
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="row">
+                    <button type="submit" class="btn btn-default" style="float:left;width:150px;background-color:yellow">Pretraga</button>
+                    <input type="button" class="btn btn-info" style="float:left;width:150px; margin-left:20px" value="Reset" id="btnReset" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="tradicija" style="display:none;float:right">
+        <br />
+        <br />
+        <h3> Hotelski lanci sa najdužom tradicijom: </h3>
+        <button id="ucitavanje" class="btn btn-default" style="width:150px;float:right;margin-right:100px"> Ucitavanje </button>
+        <div id="tradicijaDiv">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="hoteli">
+    </div>
+</div>
+<br />
+<br />
+<div class="row" id="formaDodavanja" style="display:none;">
+    <div class="col-lg-offset-4 col-lg-4">
+        <form class="form-horizontal" method="post" action="post/" id="hotelNova">
+            <h2>Dodavanje novog hotela</h2>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Lanac:</label>
+                <div class="col-sm-8" style="float:right">
+                    <select class="form-control" id="lanac"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Naziv:</label>
+                <div class="col-sm-8" style="float:right">
+                    <input type="text" class="form-control" id="naziv" required="required" maxlength="80">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Godina otvaranja:</label>
+                <div class="col-sm-4" style="float:right">
+                    <input type="number" class="form-control" id="godinaOtvaranja" required="required" min="1950" max="2020">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Broj soba:</label>
+                <div class="col-sm-4" style="float:right">
+                    <input type="number" class="form-control" id="brojSoba" required="required" min="10" max="999">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-pull-4">Broj zaposlenih:</label>
+                <div class="col-sm-4" style="float:right">
+                    <input type="number" class="form-control" id="brojZaposlenih" required="required" min="1">
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    <button type="submit" id="Odustajanje" class="btn btn-default" style="float:left;width:150px;background-color:yellow">Odustajanje</button>
+                    <button type="submit" class="btn btn-default" style="float:right;width:150px">Dodavanje</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
